@@ -1,0 +1,17 @@
+button {
+  width: 80%;
+  background-color: #ff6939;
+  border: none;
+}
+
+button a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #190f27;
+}
+
+.right {
+  background-image: url(../images/png/image69.png);
+  background-size: cover;
+}

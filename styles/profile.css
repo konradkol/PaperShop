@@ -1,0 +1,44 @@
+ul {
+  padding: 5px;
+  padding-left: 35px;
+  border: 4px double #aaa;
+}
+
+li {
+  list-style: decimal;
+}
+
+.logout {
+  cursor: pointer;
+  margin-left: 1%;
+  text-decoration: underline;
+  color: #ff6939;
+}
+
+.register {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#userContent h3 {
+  margin-bottom: 5px;
+}
+
+#userContent a {
+  display: block;
+  margin: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.right {
+  background-image: url(../images/png/image69.png);
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  .register {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projekt sklepu papierniczego" />
+    <meta
+      name="keywords"
+      content="sklep papierniczy, przykładowy projekt, strona internetowa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Konrad Pecyna" />
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rubik" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/png/favicon.ico"
+      sizes="32x32" />
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="left">
+          <div class="wrapperLeft">
+            <h1>Zaloguj się</h1>
+            <button class="button_socialMedia">
+              <img src="./images/webp/fb.webp" alt="logo_facebook" />
+              <p>Zaloguj się przez Facebook</p>
+            </button>
+            <button class="button_socialMedia">
+              <img src="./images/webp/insta.webp" alt="logo_instagram" />
+              <p>Zaloguj się przez Instagram</p>
+            </button>
+            <div class="lineWrapper">
+              <hr />
+              <p>Lub za pomocą maila</p>
+            </div>
+            <form>
+              <div class="textForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email Adress" />
+                <div id="emailError" class="validationError">
+                  To nie jest poprawny format adresu e-mail
+                </div>
+              </div>
+              <div class="textForm">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" />
+                <div id="passwordError" class="validationError">
+                  Hasło musi mieć co najmniej 8 znaków, małą i wielką literę,
+                  cyfrę i znak specjalny
+                </div>
+              </div>
+              <div class="checkboxForm">
+                <div>
+                  <input type="checkbox" id="rememberMe" />
+                  <label for="rememberMe">Zapamiętaj mnie</label>
+                </div>
+                <a href="password-recovery.html">Zapomniałem hasła</a>
+              </div>
+              <button type="submit" class="submit">Zaloguj się</button>
+            </form>
+            <div class="lineWrapper">
+              <hr />
+            </div>
+            <p class="login">
+              Nie masz jeszcze konta? <a href="index.html">Zarejestruj się</a>
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <img src="./images/webp/paper.webp" alt="logo_PaperShop" />
+        </div>
+      </div>
+    </main>
+    <div class="popup">
+      <div class="loader"></div>
+    </div>
+    <script src="./login.js"></script>
+  </body>
+</html>

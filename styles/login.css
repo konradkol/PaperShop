@@ -1,0 +1,9 @@
+.checkboxForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right {
+  background-image: url(../images/png/image69.png);
+  background-size: cover;
+}

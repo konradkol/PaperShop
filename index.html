@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projekt sklepu papierniczego" />
+    <meta
+      name="keywords"
+      content="sklep papierniczy, przykładowy projekt, strona internetowa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Konrad Pecyna" />
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rubik" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/png/favicon.ico"
+      sizes="32x32" />
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="left">
+          <div class="wrapperLeft">
+            <h1>Zarejestruj się</h1>
+            <button class="button_socialMedia">
+              <img src="./images/webp/fb.webp" alt="logo_facebook" />
+              <p>Rejestracja przez Facebook</p>
+            </button>
+            <button class="button_socialMedia">
+              <img src="./images/webp/insta.webp" alt="logo_instagram" />
+              <p>Rejestracja przez Instagram</p>
+            </button>
+            <div class="lineWrapper">
+              <hr />
+              <p>Lub za pomocą maila</p>
+            </div>
+            <form>
+              <div class="nameForm">
+                <div class="textForm">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" placeholder="First Name" />
+                  <div id="firstNameError" class="validationError">
+                    Imię musi mieć 2-20 liter, pierwsza powinna być wielka
+                  </div>
+                </div>
+                <div class="textForm">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" placeholder="Last Name" />
+                  <div id="lastNameError" class="validationError">
+                    Nazwisko musi mieć 2-30 liter, pierwsza powinna być wielka
+                  </div>
+                </div>
+              </div>
+              <div class="textForm">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email Adress"
+                  autocomplete="email" />
+                <div id="emailError" class="validationError">
+                  To nie jest poprawny format adresu e-mail
+                </div>
+              </div>
+              <div class="textForm">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" />
+                <div id="passwordError" class="validationError">
+                  Hasło musi mieć co najmniej 8 znaków, małą i wielką literę,
+                  cyfrę i znak specjalny
+                </div>
+              </div>
+              <div class="checkboxForm">
+                <input type="checkbox" id="terms" />
+                <label for="terms"
+                  >I have read the <a href="#">Terms & Conditions</a></label
+                >
+                <div id="termsError" class="validationError">
+                  Musisz zaakceptować warunki serwisu
+                </div>
+              </div>
+              <button type="submit" class="submit">
+                Zarejestruj się za darmo
+              </button>
+            </form>
+            <div class="lineWrapper">
+              <hr />
+            </div>
+            <p class="login">
+              Masz już konto? <a href="login.html">Zaloguj się</a>
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <img src="./images/webp/paper.webp" alt="logo_PaperShop" />
+        </div>
+      </div>
+    </main>
+    <div class="popup">
+      <div class="loader"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
