@@ -13,6 +13,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!validation()) {
+    showInfoFailure("Wypełnij poprawnie pola podświetlone na czerwono.");
     console.log("niepoprawna walidacja");
   } else {
     // console.log("ok");
