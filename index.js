@@ -6,6 +6,8 @@ const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const termsCheckbox = document.getElementById("terms");
+
+const info = document.querySelector(".info");
 const main = document.querySelector("main");
 const popup = document.querySelector(".popup");
 
@@ -13,6 +15,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!validation()) {
+    showInfoFailure("Wypełnij poprawnie pola podświetlone na czerwono.");
     console.log("niepoprawna walidacja");
   } else {
     console.log("ok");
@@ -36,15 +39,26 @@ form.addEventListener("submit", (e) => {
         if (response.status >= 200 && response.status < 300) {
           console.log(response);
           const result = await response.json();
-          success();
+          showInfoSuccess(`Użytkownik został zarejestrowany.`);
+          setTimeout(() => {
+            loader();
+          }, 1500);
           console.log(result);
           console.log("Dodano nowego uzytkownika");
         } else if (response.status === 403) {
+          showInfoFailure("Taki użytkownik już istnieje, użyj innego maila");
           console.log("Taki użytkownik już istnieje, użyj innego maila");
-          throw new Error(`error: ${response.status}`);
+        } else {
+          showInfoFailure(
+            `Wystąpił nieoczekiwany błąd (${response.status}), spróbuj ponownie za chwilę.`
+          );
+          console.log(response);
         }
       } catch (error) {
-        console.error("error", error);
+        showInfoFailure(
+          `Wystąpił nieoczekiwany błąd (${error}), spróbuj ponownie za chwilę.`
+        );
+        console.error(error);
       }
     })();
   }
@@ -128,12 +142,28 @@ function validation() {
   return isVaidationOk(ifContinue);
 }
 
-function success() {
+function loader() {
   main.classList.add("blur");
   popup.classList.add("showPopup");
   setTimeout(() => {
     main.classList.remove("blur");
     popup.classList.remove("showPopup");
     window.location.href = "./login.html";
+  }, 2000);
+}
+
+function showInfoSuccess(message) {
+  info.innerText = message;
+  info.classList.add("showInfo");
+  setTimeout(() => {
+    info.classList.remove("showInfo");
+  }, 2000);
+}
+
+function showInfoFailure(message) {
+  info.innerText = message;
+  info.classList.add("showInfo", "addErrorInfo");
+  setTimeout(() => {
+    info.classList.remove("showInfo", "addErrorInfo");
   }, 2000);
 }

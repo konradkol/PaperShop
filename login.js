@@ -4,6 +4,8 @@ const form = document.querySelector("form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const rememberMeCheckbox = document.getElementById("rememberMe");
+
+const info = document.querySelector(".info");
 const main = document.querySelector("main");
 const popup = document.querySelector(".popup");
 
@@ -31,7 +33,12 @@ form.addEventListener("submit", (e) => {
         });
         // console.log(response);
         if (!response.ok) {
-          throw new Error(`error: ${response.status}`);
+          showInfoFailure(
+            `Wystąpił nieoczekiwany błąd (${response.status} - ${response.statusText}) spróbuj ponownie.`
+          );
+          console.log(response);
+          return;
+          // throw new Error(`error: ${response.status}`);
         }
         const result = await response.json();
         console.log(result);
@@ -43,12 +50,18 @@ form.addEventListener("submit", (e) => {
         if (rememberMeCheckbox.checked) {
           localStorage.setItem("rememberMe", JSON.stringify(true));
         }
-        success();
+        showInfoSuccess(`Użytkownik został zalogowany.`);
+        setTimeout(() => {
+          loader();
+        }, 1500);
       } catch (error) {
         console.error(error);
-        alert(
-          `Coś poszło nie tak. Spróbuj zalogować się ponownie. 
-          ${error}`
+        // alert(
+        //   `Coś poszło nie tak. Spróbuj zalogować się ponownie.
+        //   ${error}`
+        // );
+        showInfoFailure(
+          `Wystąpił nieoczekiwany błąd (${error}), spróbuj ponownie za chwilę.`
         );
       }
     })();
@@ -95,12 +108,28 @@ function validation() {
   return isVaidationOk(ifContinue);
 }
 
-function success() {
+function loader() {
   main.classList.add("blur");
   popup.classList.add("showPopup");
   setTimeout(() => {
     main.classList.remove("blur");
     popup.classList.remove("showPopup");
     window.location.href = "./profile.html";
+  }, 2000);
+}
+
+function showInfoSuccess(message) {
+  info.innerText = message;
+  info.classList.add("showInfo");
+  setTimeout(() => {
+    info.classList.remove("showInfo");
+  }, 2000);
+}
+
+function showInfoFailure(message) {
+  info.innerText = message;
+  info.classList.add("showInfo", "addErrorInfo");
+  setTimeout(() => {
+    info.classList.remove("showInfo", "addErrorInfo");
   }, 2000);
 }
